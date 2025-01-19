@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    background: #f9f9f9;
+    color: #333;
+
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #009579;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.navbar .menu ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar .menu ul li {
+    display: inline-block;
+}
+
+.navbar .menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.navbar .menu ul li a:hover {
+    color: #d4d4d4;
+}
+
+.container{
+    max-width: 1300px;
+    padding: 50px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.content .inp{
+    gap: 15px;
+}
+.content {
+    text-align: center;
+}
+
+.content h4 {
+    font-size: 35px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.inp input {
+    width: 300px;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 1rem;
+    border: 1px solid #343333;
+    border-radius: 5px;
+    outline: none;
+}
+
+.inp input:hover {
+    border-color: #009579;
+    box-shadow: 0 0 5px rgb(199, 39, 7);
+}
+
+.inp .btn {
+    width: 150px;
+    height: 40px;
+    background-color: #009579;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+
+.inp .btn:hover {
+    background-color: #006653;
+}
+
+.card_s .product{
+    width: 300px;
+    height: 220px;
+    background-color: #e2dfdf;
+    box-shadow: 4px 4px 8px  rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.card_s{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.product span,p{
+    padding-left: 20px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.delete_btn, .edit_btn{
+    margin-top: 50px;
+    margin-left: 20px;
+    cursor: pointer;
+    background-color:rgba(74, 59, 82, 0.857);
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    border: black;
+}

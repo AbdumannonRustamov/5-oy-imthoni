@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kitob dokoni</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <input type="checkbox" id="toggle" />
+      <div class="form1">
+        <header>Kirish</header>
+        <form id="loginForm" action="#">
+          <input type="text" placeholder="Emailingizni kiriting" />
+          <input type="password" placeholder="Parolingizni kiriting" />
+          <a href="#">Parolni unutdingizmi?</a>
+          <button type="button" class="btn1">Kirish</button>
+        </form>
+        <div class="switch1">
+          <span
+            >Hisobingiz yo'qmi?
+            <label for="toggle">Ro'yxatdan o'tish</label>
+          </span>
+        </div>
+      </div>
+      <div class="form2">
+        <header>Ro'yxatdan o'tish</header>
+        <form id="signupForm" action="#">
+          <input class="emailSign" type="text" placeholder="Emailingizni kiriting" />
+          <input type="password" placeholder="Yangi parol yarating" />
+          <input class="paswordEmail" type="password" placeholder="Parolni tasdiqlang" />
+          <button type="button" class="btn2">Ro'yxatdan o'tish</button>
+        </form>
+        <div class="switch1">
+          <span
+            >Hisobingiz bormi?
+            <label for="toggle">Kirish</label>
+          </span>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
