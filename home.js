@@ -3,29 +3,35 @@ async function fetchBooks() {
         const response = await fetch('https://trello.vimlc.uz/books');
         const books = await response.json();
 
-        const cardContainer = document.querySelector('.card_s');
-        cardContainer.innerHTML = ''; 
-
-        books.forEach(book => {
-            const productDiv = document.createElement('div');
-            productDiv.classList.add('product');
-            productDiv.innerHTML = `
-                <p>Kitob nomi: <span>${book.title}</span></p>
-                <p>Muallifi: <span>${book.author}</span></p>
-                <p>Chiqarilgan yili: <span>${book.year}</span></p>
-                <button class="delete_btn" data-id="${book.id}">O'chrish</button>
-                <button class="edit_btn" data-id="${book.id}">Tahrirlash</button>
-            `;
-            cardContainer.appendChild(productDiv);
-        });
-        const deleteButtons = document.querySelectorAll('.delete_btn');
-        deleteButtons.forEach(button => {
-            button.addEventListener('click', () => deleteBook(button));
-        });
+        displayBooks(books); 
     } catch (error) {
         console.error('Xatolik yuz berdi:', error);
     }
 }
+
+function displayBooks(books) {
+    const cardContainer = document.querySelector('.card_s');
+    cardContainer.innerHTML = ''; 
+
+    books.forEach(book => {
+        const productDiv = document.createElement('div');
+        productDiv.classList.add('product');
+        productDiv.innerHTML = `
+            <p>Kitob nomi: <span>${book.title}</span></p>
+            <p>Muallifi: <span>${book.author}</span></p>
+            <p>Chiqarilgan yili: <span>${book.year}</span></p>
+            <button class="delete_btn" data-id="${book.id}">O'chirish</button>
+            <button class="edit_btn" data-id="${book.id}">Tahrirlash</button>
+        `;
+        cardContainer.appendChild(productDiv);
+    });
+
+    const deleteButtons = document.querySelectorAll('.delete_btn');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', () => deleteBook(button));
+    });
+}
+
 async function deleteBook(button) {
     const bookId = button.getAttribute('data-id'); 
     try {
@@ -34,10 +40,10 @@ async function deleteBook(button) {
         });
 
         if (response.ok) {
-            console.log(`${bookId} ochirildi`);
+            console.log(`${bookId} o'chirildi`);
             fetchBooks(); 
         } else {
-            console.error(`${response.status}`);
+            console.error(`Xatolik: ${response.status}`);
         }
     } catch (error) {
         console.error(error);
@@ -65,7 +71,7 @@ async function addBook(event) {
         });
 
         if (response.ok) {
-            console.log('Yangi kitob qoshildi!');
+            console.log('Yangi kitob qo‘shildi!');
             inputs.forEach(input => input.value = '');
             fetchBooks(); 
         } else {
@@ -76,8 +82,35 @@ async function addBook(event) {
     }
 }
 
+async function searchBook(event) {
+    event.preventDefault();
+
+    const searchInput = document.querySelector('#searchForm input[name="search"]').value.toLowerCase();
+    const searchResult = document.getElementById('searchResult');
+
+    if (!searchInput) {
+        searchResult.textContent = 'Qidiruv uchun soz kiriting!';
+        return;
+    }
+
+    try {
+        const response = await fetch('https://trello.vimlc.uz/books');
+        const books = await response.json();
+
+        const filteredBooks = books.filter(book => book.title.toLowerCase().includes(searchInput));
+
+        if (filteredBooks.length > 0) {
+            displayBooks(filteredBooks);
+            searchResult.textContent = `${filteredBooks.length} ta natija topildi.`;
+        } else {
+            searchResult.textContent = 'Hech qanday natija topilmadi.';
+        }
+    } catch (error) {
+        searchResult.textContent = 'Xatolik yuz berdi!';
+        console.error(error);
+    }
+}
 document.getElementById('inp').addEventListener('submit', addBook);
+document.getElementById('searchForm').addEventListener('submit', searchBook);
 
 fetchBooks();
-
-

@@ -9,11 +9,11 @@
   <body>
     <div class="container">
       <input type="checkbox" id="toggle" />
-      <div class="form1">
+      <div class="form1"> 
         <header>Kirish</header>
         <form id="loginForm" action="#">
-          <input type="text" placeholder="Emailingizni kiriting" />
-          <input type="password" placeholder="Parolingizni kiriting" />
+          <input id="loginEmail" type="text" placeholder="Emailingizni kiriting" required/>
+          <input id="loginPassword" type="password" placeholder="Parolingizni kiriting" required/>
           <a href="#">Parolni unutdingizmi?</a>
           <button type="button" class="btn1">Kirish</button>
         </form>
@@ -27,9 +27,9 @@
       <div class="form2">
         <header>Ro'yxatdan o'tish</header>
         <form id="signupForm" action="#">
-          <input class="emailSign" type="text" placeholder="Emailingizni kiriting" />
-          <input type="password" placeholder="Yangi parol yarating" />
-          <input class="paswordEmail" type="password" placeholder="Parolni tasdiqlang" />
+          <input id="signupEmail" type="text" placeholder="Emailingizni kiriting" required/>
+          <input id="signupPassword" type="password" placeholder="Yangi parol yarating" required/>
+          <input id="signupConfirmPassword" type="password" placeholder="Parolni tasdiqlang" required/>
           <button type="button" class="btn2">Ro'yxatdan o'tish</button>
         </form>
         <div class="switch1">

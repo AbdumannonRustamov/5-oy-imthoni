@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kitob dokoni</title>
     <link rel="stylesheet" href="home.css" />
   </head>
@@ -20,18 +20,25 @@
     </header>
 
     <div class="container">
-    <main class="content">
-      <h4>Kitob qo'shish</h4>
-      <form id="inp" class="inp">
-        <input type="text" placeholder="Kitib nomini kiriting!" />
-        <input type="text" placeholder="Kitob Muallifni kirting!" />
-        <input type="text" placeholder="Chop etilgan yilini kiriting!" />
-        <div><button type="submit" class="btn">Qo'shish</button></div>
-    </form>
-    </main>
-    <div class="card_s"></div>
-</div>
+      <main class="content">
+        <h4>Kitob qo'shish</h4>
+        <form id="inp" class="inp">
+          <input type="text" placeholder="Kitib nomini kiriting!" />
+          <input type="text" placeholder="Kitob Muallifni kirting!" />
+          <input type="text" placeholder="Chop etilgan yilini kiriting!" />
+          <div><button type="submit" class="btn">Qo'shish</button></div>
+        </form>
 
+        <form id="searchForm" action="#">
+          <input class="search_id"type="text"name="search" placeholder="Kitob nomini qidirish..."/>
+          <button type="submit">Qidirish</button>
+        </form>
+
+        <p id="searchResult"></p>
+        <div class="card_s"></div>
+      </main>
+      <div class="card_s"></div>
+    </div>
 
     <script src="home.js"></script>
   </body>
